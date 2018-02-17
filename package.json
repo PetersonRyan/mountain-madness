@@ -4,7 +4,11 @@
   "description": "hackathon2018project",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "server": "node app.js",
+    "server_local": "SET NODE_ENV=local&&node app.js",
+    "server_develop": "SET NODE_ENV=development&& node app.js",
+    "server_staging": "SET NODE_ENV=staging&& node app.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +21,11 @@
   },
   "homepage": "https://github.com/PetersonRyan/mountain-madness#readme",
   "dependencies": {
-    "express": "^4.16.2"
+    "colors": "^1.1.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "http": "0.0.0",
+    "log-timestamp": "^0.1.2",
+    "nconf": "^0.10.0"
   }
 }
