@@ -18,9 +18,13 @@ app.use(express.static(__dirname + '/public'));
 
 var services = require('./services');
 
+const API_KEY = '24431d0e56632af62a7e1891d23a0fd9'
+const API_URL = `https://api.darksky.net/forecast/${API_KEY}`
+
 app.get('/api/getData', function(req,res){
 
-	
+		
+
 });
 
 
