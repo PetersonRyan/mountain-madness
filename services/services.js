@@ -5,10 +5,6 @@ var getWeather = (lat, lng) => {//adjust DarkSky api url to contain desired coor
 
   var url = API_URL + `/${lat},${lng}`
 
-  if ( uOption != undefined ){//if units are user choice then adjust url accordingly
-    url = url + `?units=${uOption}`
-  }
-
   request({
     url: url,
     json: true
@@ -26,4 +22,4 @@ var getWeather = (lat, lng) => {//adjust DarkSky api url to contain desired coor
   });
 }
 
-export.getWeather;
+module.export.getWeather = getWeather;
