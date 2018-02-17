@@ -16,16 +16,12 @@ app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 app.use(express.static(__dirname + '/public'));
 
+var services = require('./services');
 
 app.get('/api/getData', function(req,res){
 
 	
 });
-
-app.post('/api/save', cors(), function(req,res){
-
-});
-
 
 
 app.get('*', function(req, res) {
