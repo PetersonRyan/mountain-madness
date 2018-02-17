@@ -17,7 +17,8 @@ var getWeather = (lat, lng) => {//adjust DarkSky api url to contain desired coor
         callback(undefined, {
           currentSummary: body.currently.summary,
           currentTemperature: body.currently.temperature,
-          currentCloudcover: body.currently.cloudCover
+          currentCloudcover: body.currently.cloudCover,
+          currentVisibility: body.currently.visibility
         });
       } else {
         callback(`Unable to fetch weather. statusCode: ${statusCode}`);
