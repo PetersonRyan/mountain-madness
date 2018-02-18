@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    
     $("#trail-search").keyup(function(event) {
         if (event.keyCode === 13) {
             search($(this).val());
@@ -31,6 +32,10 @@ function search(string){
     var results = fuse.search(string);
     if (!string || string == "" || string == " "){
         results = trails;
+    }
+
+    if (string == "favorites" || string=="Favorites"){
+        drawCards(window.favorites);
     }
     drawCards(results);
     return results;
