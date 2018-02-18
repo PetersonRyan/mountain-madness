@@ -16,7 +16,7 @@
     padding-left: 20px;
     outline: none;
     margin: 0;
-    border-color: transparent;}
+    border-color: transparent; }
 
 img {
   height: 400px; }
@@ -103,10 +103,7 @@ img {
   left: 0;
   right: 0;
   margin: 0 auto;
-  -webkit-transition: width 0.3s ease, margin 0.3s ease;
-  -moz-transition: width 0.3s ease, margin 0.3s ease;
-  -o-transition: width 0.3s ease, margin 0.3s ease;
-  transition: width 0.3s ease, margin 0.3s ease;
+  transition: margin 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

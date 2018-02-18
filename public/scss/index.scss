@@ -83,7 +83,7 @@ img{
       text-shadow: white 5px 5px 5px;
     }
     .fa-circle{
-      opacity: 0.5;
+      //opacity: 0.5;
     }
   }
 }
@@ -149,10 +149,13 @@ img{
   right: 0;
   margin: 0 auto;
 
-  -webkit-transition: width 0.3s ease, margin 0.3s ease;
-  -moz-transition: width 0.3s ease, margin 0.3s ease;
-  -o-transition: width 0.3s ease, margin 0.3s ease;
-  transition: width 0.3s ease, margin 0.3s ease;
+  //-webkit-transition: width 0.3s ease, margin 0.3s ease;
+  //-moz-transition: width 0.3s ease, margin 0.3s ease;
+  //-o-transition: width 0.3s ease, margin 0.3s ease;
+  //transition: width 0.3s ease, margin 0.3s ease;
+
+  transition: margin 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  //transform-origin: 20% 40%;
 
   > .display-big.show{
     display: initial;
