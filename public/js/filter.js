@@ -58,6 +58,15 @@ function filterByLength(lenghtLevel, arr){
     drawCards(lengthBy);
 }
 
+function getMaxMinDistance(trailss){
+    if (!trailss) trailss = trails;
+    $.each(trailss, function(k,v){
+        if (v.distance.replace('km','') > distanceMax) distanceMax = v.distance.replace('km','');
+        if (v.distance.replace('km','') < distanceMin) distanceMin = v.distance.replace('km','');
+    });
+    return { min: distanceMin, max: distanceMax };
+}
+
 //helper functions
 function arePointsNear(checkPoint, centerPoint, km) {
     var ky = 40000 / 360;
@@ -66,3 +75,6 @@ function arePointsNear(checkPoint, centerPoint, km) {
     var dy = Math.abs(centerPoint.lat - checkPoint.lat) * ky;
     return Math.sqrt(dx * dx + dy * dy) <= km;
 }
+
+var distanceMin = 9000;
+var distanceMax = 0;
