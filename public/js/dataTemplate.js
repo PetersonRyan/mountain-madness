@@ -50658,3 +50658,18 @@ var icons = {
     partly_cloudy_night: "wi-night-alt-cloudy",
     tornado: "wi-tornado"
 }
+
+var laymans = {
+    wi_day_sunny
+    wi_day_sunny
+    wi_night_clear
+    wi_raindrops
+    wi_snow
+    wi_sleet
+    wi_strong-wind
+    wi_fog
+    wi_cloudy
+    wi_day-cloudy
+    wi_night-alt-cloudy
+    wi_tornado
+}
