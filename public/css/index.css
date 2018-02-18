@@ -78,17 +78,21 @@ img {
     top: 15px; } }
 @media screen and (max-width: 600px) {
   .focus-card {
-    top: 0; } }
+    width: 100%; } }
 .focus-card {
   z-index: 99;
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
   margin: 0 auto;
   -webkit-transition: width 0.3s ease, margin 0.3s ease;
   -moz-transition: width 0.3s ease, margin 0.3s ease;
   -o-transition: width 0.3s ease, margin 0.3s ease;
-  transition: width 0.3s ease, margin 0.3s ease; }
+  transition: width 0.3s ease, margin 0.3s ease;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-height: 97vh; }
   .focus-card > .display-big.show {
     display: initial; }
   .focus-card .card-title {

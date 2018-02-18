@@ -1,17 +1,15 @@
 $(document).ready(function(){
     $('body').on('click', '.card-image', function(){
-        $(this).parent().addClass('focus-card');
+        $(this).parent().addClass('focus-card').addClass('z-depth-5').find('.card-image').addClass('z-depth-1');
+        $('body').css('overflow', 'hidden');
     });
 
     $(document).on('click', '.exit-card', function(){
-        $("div .card").removeClass('focus-card');
+        $("div .card").removeClass('focus-card').removeClass('z-depth-5').find('.card-image').removeClass('z-depth-1');
+        $('body').css('overflow', 'scroll');
     });
 
-    $.each(trails, function(k,v){
-        setTimeout(function(){
-            addCard(v);
-        }, 10);
-    });
+
 
 });
 
@@ -45,6 +43,7 @@ function addCard(content){
         "                    </div>\n" +
         "                </div>\n" +
         "\n" +
+        //"                <div class='full-card-content'>\n" +
         "                <div class='card-content'>\n" +
         "                    <span class='card-title black-text bold'>" + content.name + "</span>\n" +
         "                    <p class='display-big'>" + content.schedule + "</p>\n" +
@@ -106,6 +105,7 @@ function addCard(content){
         "                <div class='card-action display-big center-align'>\n" +
         "                    <a href='" + content.link + "'>More Information</a>\n" +
         "                </div>\n" +
+        //"                </div>\n" +
         "            </div>\n" +
         "\n" +
         "        </div>";
