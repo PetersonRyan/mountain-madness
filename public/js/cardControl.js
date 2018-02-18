@@ -4,9 +4,7 @@ $(document).ready(function(){
     });
 
     $(document).on('click', '.exit-card', function(){
-        console.log($('.card'));
         $("div .card").removeClass('focus-card');
-
     });
 
     $.each(trails, function(k,v){
