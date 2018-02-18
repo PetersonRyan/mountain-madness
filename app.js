@@ -98,10 +98,10 @@ function addWeatherData(){
 
 			if (!(weatherTracker >= data.length - 1)){
 				console.log(`weatherTracker: ${weatherTracker}`);
-				data[weatherTracker].currentSummary = body.currently.summary;
-				data[weatherTracker].currentTemperature = body.currently.temperature;
+				data[weatherTracker].currentSummary = body.currently.summary,
+				data[weatherTracker].currentTemperature = body.currently.temperature,
+				data[weatherTracker].currentIcon = body.currently.icon,
 				data[weatherTracker].dailyForecast = body.daily.data;
-				data[weatherTracker].currenyIcon = body.currently.icon;
 				weatherTracker++;
 			}else {
 				if (weatherTracker >= data.length - 1){
