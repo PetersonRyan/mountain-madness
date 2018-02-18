@@ -15,6 +15,11 @@ $(document).ready(function(){
         }
     });
 
+    $('body').click(function (event) {
+        if(!$(event.target).closest('.focus-card').length ) {
+            closeFocusCard();
+        }     
+    });
     // $('.focus-card').on('click', function(e) {
     //     e.stopPropagation();
     // });
