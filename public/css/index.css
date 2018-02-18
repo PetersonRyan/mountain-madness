@@ -67,6 +67,10 @@ img {
     .card-image .exit-card :hover {
       text-shadow: white 5px 5px 5px; }
 
+#contentSchedule{
+  text-transform: capitalize;
+}
+
 .display-big .row {
   margin-top: 12px;
   margin-left: 0;
