@@ -5,12 +5,13 @@ var axios = require('axios');
 var data = [];
 
 var ProgressBar = require('progress');
-
-var bar = new ProgressBar(':bar', { total: 90 });
+console.log("Wait Please...");
+var bar = new ProgressBar(':bar', { total: 70 });
 var timer = setInterval(function () {
   bar.tick();
   if (bar.complete) {
     console.log('\nComplete\n');
+    console.log("Length: "+ data.length);
     clearInterval(timer);
   }
 }, 100);
@@ -49,7 +50,7 @@ request('https://www.vancouvertrails.com/trails/', function(err, resp, html) {
 
             });
         }
-        console.log("Wait Please...");
+        
 
         async.each(data, function(item, done){
 
@@ -102,8 +103,6 @@ request('https://www.vancouvertrails.com/trails/', function(err, resp, html) {
                     return console.log(err);
                 }
             });
-
-            console.log("Length: "+ data.length);
         },10000);
 
 });
