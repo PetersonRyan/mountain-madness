@@ -120,7 +120,7 @@ function addCard(content){
         "                            <p>DESCRIPTION</p>\n" +
         "                            <p class='description'>" + content.description + "</p>\n" +
         "                        </div>\n" +
-        "                        <div class='map' style='width:100%, height: 100%'>map</div>" +
+        "                        <div class='mapStyle map' style='width:100%, height: 100%'>map</div>" +
         "                        <div class='row weather'>\n" +
         "                            <div class='row'><p>WEATHER</p></div>\n" +
         "                            <div class='row center-align'>\n" +
