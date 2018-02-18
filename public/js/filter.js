@@ -12,7 +12,7 @@ function filterDistance(minDistance, maxDistance){
 
 function filterNearBy(range){
     for (let i=0; i<trails.length ; i++){
-        let checkPoint = { 'lat': trails[i].lat, 'long': trails[i].long};
+        let checkPoint = { 'lat': trails[i].latitude, 'long': trails[i].longitude};
         if (arePointsNear(checkPoint, window.pos, range)){
             nearBy.push(trails[i]);
         }
