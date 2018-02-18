@@ -29,6 +29,8 @@
     "http": "0.0.0",
     "log-timestamp": "^0.1.2",
     "nconf": "^0.10.0",
+    "progress": "^2.0.0",
+    "progress-bar": "^0.1.1",
     "request": "^2.83.0"
   }
 }
