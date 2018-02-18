@@ -19,12 +19,12 @@
 <div class="container-fluid teal lighten-1 z-depth-1 " id="navbar-head">
     <div class="row valign-wrapper">
         <div class="col s12 m6 offset-m3">
-          <h1 id="logo">goHike.com</h1>
             <div class="search z-depth-1" id="head-search-box">
                 <input type="text" class="search-input" id="trail-search">
                 <span id="search-button">
                     <i class="fas fa-search"></i>
                 </span>
+
                 <div id="myBtnContainer">
                   <button class="btn active" onclick="filterSelection('all')"> Clear Filter</button>
                   <button onclick="myFunction()" class="btn">Intensity</button>
@@ -36,7 +36,23 @@
                   <button class="btn" onclick="filterSelection('Length')"> Length</button>
                   <button class="btn" onclick="filterSelection('Region')"> Region</button>
                 </div>
+
             </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col m3">
+                <a href="#" class="dropdown-button btn" data-activates="difficulty-dropdown">Difficulty</a>
+                <ul id="difficulty-dropdown" class="dropdown-content">
+                    <li><a href="#" onclick="filterDifficulty('Easy')">Easy</a></li>
+                    <li><a href="#" onclick="filterDifficulty('Intermediate')">Intermediate</a></li>
+                    <li><a href="#" onclick="filterDifficulty('Difficult')">Difficult</a></li>
+                </ul>
+            </div>
+            <div class="col m3"></div>
+            <div class="col m3"></div>
+            <div class="col m3"></div>
         </div>
     </div>
 </div>
