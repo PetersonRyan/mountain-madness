@@ -93,22 +93,21 @@ function addWeatherData(){
 		json: true
 		}, (error, response, body) => {
 		if(!error && response.statusCode === 200) {
-			console.log(`weatherTracker: ${weatherTracker}`)
+			console.log(`weatherTracker: ${weatherTracker}`);
 			if (!(tracker >= data.length - 1)){
-				console.log("Weather Tracker: "+weatherTracker);
 				data[weatherTracker].currentSummary = body.currently.summary,
 				data[weatherTracker].currentTemperature = body.currently.temperature,
 				data[weatherTracker].dailyForecast = body.daily.data;
 				weatherTracker++;
 			}
-		} 
+		}
 	});
 
 	if (weatherTracker >= data.length - 1){
 		clearInterval(trailWeather);
 		fs.writeFile("test.json", JSON.stringify(data), function(err) {
 			if(err) {
-					return console.log(err);
+				return console.log(err);
 			}
    		});
 	}
