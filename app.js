@@ -86,12 +86,12 @@ var weatherTracker = 0;
 function addWeatherData(){
 	let encodedLat = data[weatherTracker].latitude;
 	let encodedLng = data[weatherTracker].longitude;
-	var weatherurl = API_URL + `/${encodedLat},${encodedLng}`
+	var weatherurl = API_URL + `/${encodedLat},${encodedLng}`;
 
 	request({
 		url: weatherurl,
 		json: true
-	}, (error, response, body) => {
+		}, (error, response, body) => {
 		if(!error && response.statusCode === 200) {
 			console.log(`weatherTracker: ${weatherTracker}`)
 			if (!(tracker >= data.length - 1)){
@@ -101,10 +101,8 @@ function addWeatherData(){
 				data[weatherTracker].dailyForecast = body.daily.data;
 				weatherTracker++;
 			}
-		} else {callback(`Unable to fetch weather. statusCode: ${response.statusCode}`);
-
-		}
-	})
+		} 
+	});
 
 	if (weatherTracker >= data.length - 1){
 		clearInterval(trailWeather);
