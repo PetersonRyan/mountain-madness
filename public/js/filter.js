@@ -61,8 +61,9 @@ function filterByLength(lenghtLevel, arr){
 function getMaxMinDistance(trailss){
     if (!trailss) trailss = trails;
     $.each(trailss, function(k,v){
-        if (v.distance.replace('km','') > distanceMax) distanceMax = v.distance.replace('km','');
-        if (v.distance.replace('km','') < distanceMin) distanceMin = v.distance.replace('km','');
+        var distance = v.distance.replace('km','').replace('up to ','');
+        if (distance > distanceMax) distanceMax = distance;
+        if (distance < distanceMin) distanceMin = distance;
     });
     return { min: distanceMin, max: distanceMax };
 }
