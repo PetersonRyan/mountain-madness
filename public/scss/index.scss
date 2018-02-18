@@ -1,5 +1,5 @@
 #navbar-head{
-  height: 65px;
+  height: 64px;
   overflow: visible;
   position: fixed;
   width: 100%;
@@ -21,6 +21,9 @@
     outline: none;
     margin: 0;
     border-color: transparent;
+  }
+  .btn{
+    width: 100%;
   }
 }
 
@@ -48,8 +51,14 @@ img{
   }
 }
 
-#trail-card-row{
-  padding-top: 65px;
+#card-container{
+  padding-top: 85px;
+}
+
+#filter-row{
+  .btn{
+    width: 100%;
+  }
 }
 
 #search-button{
