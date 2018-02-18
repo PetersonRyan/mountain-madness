@@ -35,6 +35,9 @@ img {
     .card .trail-conditions .wi {
       font-weight: 600; }
 
+#trail-card-row {
+  padding-top: 65px; }
+
 .focus-card .display-big {
   display: block !important; }
 
