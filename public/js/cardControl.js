@@ -1,5 +1,6 @@
 $(document).ready(function(){
     $('body').on('click', '.card-image', function(){
+        closeFocusCard();
         $(this).parent().addClass('focus-card').addClass('z-depth-5').find('.card-image').addClass('z-depth-1');
         $('body').css('overflow', 'hidden');
         setFocusCardContentHeight();
@@ -36,6 +37,7 @@ $(document).ready(function(){
 });
 
 function openPopUp(item){
+    closeFocusCard();
     $(item).addClass('focus-card').addClass('z-depth-5').find('.card-image').addClass('z-depth-1');
     $('body').css('overflow', 'hidden');
     setFocusCardContentHeight();
@@ -120,32 +122,32 @@ function addCard(content){
         "                            <div class='row center-align'>\n" +
         "                                <div class='col s2'>\n" +
         "                                    <i class='wi " + icons[content.dailyForecast[0].icon.replace(/-/g, "_")] + "'></i>\n" +
-        "                                    <p class='condition'>" + laymans[icons[content.dailyForecast[0].icon.replace(/-/g, "_")].replace(/-/g, "_")] + " " + Math.round(content.dailyForecast[0].temperatureHigh) + "&deg;C</p>\n" +
+        "                                    <p class='condition'>" + laymans[icons[content.dailyForecast[0].icon.replace(/-/g, "_")].replace(/-/g, "_")] + " " + Math.round(content.dailyForecast[0].temperatureHigh) + "&deg;F</p>\n" +
         "                                    <p class='weather-date'>" + moment(content.dailyForecast[0].time * 1000).format("MMM DD") + "</p>\n" +
         "                                </div>\n" +
         "                                <div class='col s2'>\n" +
         "                                    <i class='wi " + icons[content.dailyForecast[1].icon.replace(/-/g, "_")] + "'></i>\n" +
-        "                                    <p class='condition'>" + laymans[icons[content.dailyForecast[1].icon.replace(/-/g, "_")].replace(/-/g, "_")] + " " + Math.round(content.dailyForecast[1].temperatureHigh) + "&deg;C</p>\n" +
+        "                                    <p class='condition'>" + laymans[icons[content.dailyForecast[1].icon.replace(/-/g, "_")].replace(/-/g, "_")] + " " + Math.round(content.dailyForecast[1].temperatureHigh) + "&deg;F</p>\n" +
         "                                    <p class='weather-date'>" + moment(content.dailyForecast[1].time * 1000).format("MMM DD") + "</p>\n" +
         "                                </div>\n" +
         "                                <div class='col s2'>\n" +
         "                                    <i class='wi " + icons[content.dailyForecast[2].icon.replace(/-/g, "_")] + "'></i>\n" +
-        "                                    <p class='condition'>" + laymans[icons[content.dailyForecast[2].icon.replace(/-/g, "_")].replace(/-/g, "_")] + " " + Math.round(content.dailyForecast[2].temperatureHigh) + "&deg;C</p>\n" +
+        "                                    <p class='condition'>" + laymans[icons[content.dailyForecast[2].icon.replace(/-/g, "_")].replace(/-/g, "_")] + " " + Math.round(content.dailyForecast[2].temperatureHigh) + "&deg;F</p>\n" +
         "                                    <p class='weather-date'>" + moment(content.dailyForecast[2].time * 1000).format("MMM DD") + "</p>\n" +
         "                                </div>\n" +
         "                                <div class='col s2'>\n" +
         "                                    <i class='wi " + icons[content.dailyForecast[3].icon.replace(/-/g, "_")] + "'></i>\n" +
-        "                                    <p class='condition'>" + laymans[icons[content.dailyForecast[3].icon.replace(/-/g, "_")].replace(/-/g, "_")] + " " + Math.round(content.dailyForecast[3].temperatureHigh) + "&deg;C</p>\n" +
+        "                                    <p class='condition'>" + laymans[icons[content.dailyForecast[3].icon.replace(/-/g, "_")].replace(/-/g, "_")] + " " + Math.round(content.dailyForecast[3].temperatureHigh) + "&deg;F</p>\n" +
         "                                    <p class='weather-date'>" + moment(content.dailyForecast[3].time * 1000).format("MMM DD") + "</p>\n" +
         "                                </div>\n" +
         "                                <div class='col s2'>\n" +
         "                                    <i class='wi " + icons[content.dailyForecast[4].icon.replace(/-/g, "_")] + "'></i>\n" +
-        "                                    <p class='condition'>" + laymans[icons[content.dailyForecast[4].icon.replace(/-/g, "_")].replace(/-/g, "_")] + " " + Math.round(content.dailyForecast[4].temperatureHigh) + "&deg;C</p>\n" +
+        "                                    <p class='condition'>" + laymans[icons[content.dailyForecast[4].icon.replace(/-/g, "_")].replace(/-/g, "_")] + " " + Math.round(content.dailyForecast[4].temperatureHigh) + "&deg;F</p>\n" +
         "                                    <p class='weather-date'>" + moment(content.dailyForecast[4].time * 1000).format("MMM DD") + "</p>\n" +
         "                                </div>\n" +
         "                                <div class='col s2'>\n" +
         "                                    <i class='wi " + icons[content.dailyForecast[5].icon.replace(/-/g, "_")]+ "'></i>\n" +
-        "                                    <p class='condition'>" + laymans[icons[content.dailyForecast[5].icon.replace(/-/g, "_")].replace(/-/g, "_")] + " " + Math.round(content.dailyForecast[5].temperatureHigh) + "&deg;C</p>\n" +
+        "                                    <p class='condition'>" + laymans[icons[content.dailyForecast[5].icon.replace(/-/g, "_")].replace(/-/g, "_")] + " " + Math.round(content.dailyForecast[5].temperatureHigh) + "&deg;F</p>\n" +
         "                                    <p class='weather-date'>" + moment(content.dailyForecast[5].time * 1000).format("MMM DD") + "</p>\n" +
         "                                </div>\n" +
         "                            </div>\n" +
