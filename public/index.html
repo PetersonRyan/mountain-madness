@@ -24,10 +24,23 @@
                 <span id="search-button">
                     <i class="fas fa-search"></i>
                 </span>
+                <div id="myBtnContainer">
+                  <button class="btn active" onclick="filterSelection('all')"> Clear Filter</button>
+                  <button onclick="myFunction()" class="btn">Intensity</button>
+                    <div id="myDropdown" class="dropdown-content">
+                      <a href="#">Easy</a>
+                      <a href="#">Intermediate</a>
+                      <a href="#">Difficult</a>
+                    </div>
+                  <button class="btn" onclick="filterSelection('Length')"> Length</button>
+                  <button class="btn" onclick="filterSelection('Region')"> Region</button>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+
 
 <div class="container" id="card-container">
     <div class="row" id="trail-card-row">
@@ -57,6 +70,25 @@
     <script src="js/filter.js"></script>
     <script src="js/search.js"></script>
     <script src="js/filterDifficulty.js"></script>
+
+    <script>
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+        window.onclick = function(event) {
+          if (!event.target.matches('.dropbtn')) {
+
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }
+    </script>
 </scripts>
 </body>
 </html>
