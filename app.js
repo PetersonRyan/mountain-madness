@@ -93,12 +93,13 @@ function addWeatherData(){
 		json: true
 		}, (error, response, body) => {
 		if(!error && response.statusCode === 200) {
-			
+
 			if (!(tracker >= data.length - 1)){
 				console.log(`weatherTracker: ${weatherTracker}`);
 				data[weatherTracker].currentSummary = body.currently.summary,
 				data[weatherTracker].currentTemperature = body.currently.temperature,
 				data[weatherTracker].dailyForecast = body.daily.data;
+				data[weatherTracker].icon = body.currently.icon;
 				weatherTracker++;
 			}
 		}

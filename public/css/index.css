@@ -108,6 +108,10 @@ img {
     overflow: scroll;
     min-height: 150px; }
 
+.container {
+  padding-top: 100px;
+}
+
 .card-container .row {
   position: relative; }
   .card-container .row div {
