@@ -104,6 +104,10 @@ img {
   .focus-card .card-content {
     overflow: scroll; }
 
+.container {
+  padding-top: 100px;
+}
+
 .card-container .row {
   position: relative; }
   .card-container .row div {
