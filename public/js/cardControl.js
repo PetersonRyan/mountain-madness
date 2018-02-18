@@ -59,7 +59,7 @@ function addCard(content){
         "                <div class='card-image' style='background-image: url(" + content.imgLink + ")'>\n" +
         "                    <div class='stupid-card display-big'>\n" +
         "                        <span class='fa-layers fa-fw exit-card fa-2x'>\n" +
-        "                            <i class='fas fa-circle' style='color:lightgray'></i>\n" +
+        "                            <i class='fas fa-circle' style='color:lightgrey'></i>\n" +
         "                            <i class='fa-inverse fas fa-times' data-fa-transform='shrink-6'></i>\n" +
         "                        </span>\n" +
         "                    </div>\n" +
