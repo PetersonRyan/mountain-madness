@@ -3,3 +3,7 @@
     height: 500px;
     margin-left:20px;
 }
+.fillStar{
+    color: rgb(209, 209, 47);
+    border-color: yellow;
+}
