@@ -158,7 +158,8 @@ img{
   }
 
   .card-content{
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
     min-height: 150px;
   }
 
