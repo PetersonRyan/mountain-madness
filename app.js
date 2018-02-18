@@ -47,13 +47,13 @@ app.listen(app.get('port'), function() {
 
 
 var tracker = 0;
-var myData = setInterval(function(){ addLatLong() }, 400);
+var myData = setInterval(function(){ addLatLong() }, 600);
 
 function addLatLong(){
 	let encodedAddress = data[tracker].name;
 
 	request ({//makes api request to google geolocation api
-		url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}`,
+		url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=AIzaSyAFcNRkevtZtIDIcs4xEILC81IWMP9pfA0`,
 		json: true
 	}, (error, response, body) => {
 		if (error) {
@@ -66,21 +66,23 @@ function addLatLong(){
 				data[tracker].latitude = body.results[0].geometry.location.lat;
 				data[tracker].longitude = body.results[0].geometry.location.lng;
 				tracker++;
+			}else {
+				if (tracker >= data.length - 1){
+					clearInterval(myData);
+					fs.writeFile("test.json", JSON.stringify(data), function(err) {
+						if(err) {
+								return console.log(err);
+						}
+					});
+				}
 			}
 		}
 	});
 
-	if (tracker >= data.length - 1){
-		clearInterval(myData);
-		fs.writeFile("test.json", JSON.stringify(data), function(err) {
-			if(err) {
-					return console.log(err);
-			}
-   		});
-	}
+	
 }
 
-var trailWeather = setInterval(function(){ addWeatherData() }, 400);
+var trailWeather = setInterval(function(){ addWeatherData() }, 600);
 var weatherTracker = 0;
 
 function addWeatherData(){
@@ -94,25 +96,27 @@ function addWeatherData(){
 		}, (error, response, body) => {
 		if(!error && response.statusCode === 200) {
 
-			if (!(tracker >= data.length - 1)){
+			if (!(weatherTracker >= data.length - 1)){
 				console.log(`weatherTracker: ${weatherTracker}`);
-				data[weatherTracker].currentSummary = body.currently.summary,
-				data[weatherTracker].currentTemperature = body.currently.temperature,
+				data[weatherTracker].currentSummary = body.currently.summary;
+				data[weatherTracker].currentTemperature = body.currently.temperature;
 				data[weatherTracker].dailyForecast = body.daily.data;
-				data[weatherTracker].icon = body.currently.icon;
+				data[weatherTracker].currenyIcon = body.currently.icon;
 				weatherTracker++;
+			}else {
+				if (weatherTracker >= data.length - 1){
+					clearInterval(trailWeather);
+					fs.writeFile("test.json", JSON.stringify(data), function(err) {
+						if(err) {
+							return console.log(err);
+						}
+					});
+				}
 			}
 		}
 	});
 
-	if (weatherTracker >= data.length - 1){
-		clearInterval(trailWeather);
-		fs.writeFile("test.json", JSON.stringify(data), function(err) {
-			if(err) {
-				return console.log(err);
-			}
-   		});
-	}
+	
 }
 
 
