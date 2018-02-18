@@ -80,7 +80,7 @@ function addLatLong(){
 	}
 }
 
-var trailWeather = setInterval(function(){ addLatLong() }, 400);
+var trailWeather = setInterval(function(){ addWeatherData() }, 400);
 var weatherTracker = 0;
 
 function addWeatherData(){
