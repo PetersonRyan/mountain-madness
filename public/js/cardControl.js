@@ -5,6 +5,7 @@ $(document).ready(function(){
         closeFocusCard();
         $(this).parent().addClass('focus-card').addClass('z-depth-5').find('.card-image').addClass('z-depth-1');
         $('body').css('overflow', 'hidden');
+        initalize(parseInt($('.focus-card').find('.mapStyle').prop('id').replace('map','')));
         setFocusCardContentHeight();
     });
 
@@ -42,6 +43,7 @@ function openPopUp(item){
     closeFocusCard();
     $(item).addClass('focus-card').addClass('z-depth-5').find('.card-image').addClass('z-depth-1');
     $('body').css('overflow', 'hidden');
+    initalize(parseInt($('.focus-card').find('.mapStyle').prop('id').replace('map','')));
     setFocusCardContentHeight();
 }
 
@@ -69,9 +71,11 @@ window.mapIndex = 0;
 function drawCards(cards){
     mapIndex = 0;
     $('#trail-card-row').html('');
+    currentTrails = [];
     $.each(cards, function(k,v){
         setTimeout(function(){
-            addCard(v);
+            addCard(v, k);
+            currentTrails[k] = v;
         }, 10);
 
     });
@@ -88,10 +92,11 @@ function addFavorite(item){
     localStorage.setItem("favorites", favorites);
 }
 
+var currentTrails = [];
 
-function addCard(content){
+function addCard(content, k){
     //content = trails[0];
-    let index = window.mapIndex;
+    var index = k;
     window.mapIndex++;
     if (!content.distance) console.log(content)
     content = $.extend(test_trail[0], content);
