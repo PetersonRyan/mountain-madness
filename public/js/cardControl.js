@@ -6,11 +6,20 @@ $(document).ready(function(){
     });
 
     $(document).on('click', '.exit-card', function(){
-        $("div .card").removeClass('focus-card').removeClass('z-depth-5').find('.card-image').removeClass('z-depth-1');
-        $('body').css('overflow', 'scroll');
-        $('.card .card-content').css('height',  'initial');
+        closeFocusCard();
     });
 
+    $(document).keyup(function(event) {
+        if (event.keyCode === 27) {
+            closeFocusCard();
+        }
+    });
+
+    $('body').click(function (event) {
+        if(!$(event.target).closest('.focus-card').length ) {
+            closeFocusCard();
+        }     
+    });
     // $('.focus-card').on('click', function(e) {
     //     e.stopPropagation();
     // });
@@ -24,6 +33,12 @@ $(document).ready(function(){
     window.onresize = setFocusCardContentHeight;
 
 });
+
+function closeFocusCard(){
+    $("div .card").removeClass('focus-card').removeClass('z-depth-5').find('.card-image').removeClass('z-depth-1');
+    $('body').css('overflow', 'scroll');
+    $('.card .card-content').css('height',  'initial');
+}
 
 function setFocusCardContentHeight(){
     if ($('.focus-card').length <= 0){
@@ -63,7 +78,7 @@ function addCard(content){
         "                <div class='card-image' style='background-image: url(" + content.imgLink + ")'>\n" +
         "                    <div class='stupid-card display-big'>\n" +
         "                        <span class='fa-layers fa-fw exit-card fa-2x'>\n" +
-        "                            <i class='fas fa-circle' style='color:lightgray'></i>\n" +
+        "                            <i class='fas fa-circle' style='color:lightgrey'></i>\n" +
         "                            <i class='fa-inverse fas fa-times' data-fa-transform='shrink-6'></i>\n" +
         "                        </span>\n" +
         "                    </div>\n" +
