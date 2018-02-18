@@ -25,6 +25,7 @@ img{
 
 .card{
   border-radius: 3px;
+  min-height: 474px;
   .card-title{
     font-size: 28px;
     margin: 0;
@@ -41,6 +42,7 @@ img{
     }
   }
 }
+
 
 .focus-card .display-big{
   display: block !important;
@@ -79,8 +81,14 @@ img{
   margin-right: 4px;
 }
 
-.card:not(.focus-card) .card-image{
-  cursor: pointer;
+.card:not(.focus-card) {
+  .secondary-info{
+    position: absolute;
+    bottom: 24px
+  }
+  .card-image {
+    cursor: pointer;
+  }
 }
 
 .weather{
@@ -93,15 +101,29 @@ img{
   }
 }
 
+@media screen and (min-width: 601px){
+  .focus-card{
+    width: 70%;
+    top: 15px;
+  }
+}
+
+@media screen and (max-width: 600px){
+  .focus-card{
+    top: 0;
+  }
+
+}
+
 
 .focus-card{
-  width: 70%;
+
   z-index: 99;
   position: absolute;
 
+
   left: 0;
   right: 0;
-  top: 15px;
   margin: 0 auto;
 
   -webkit-transition: width 0.3s ease, margin 0.3s ease;
@@ -111,6 +133,9 @@ img{
 
   > .display-big.show{
     display: initial;
+  }
+  .card-title{
+    margin-bottom: 4px !important;
   }
 }
 
