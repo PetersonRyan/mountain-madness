@@ -97,6 +97,8 @@ img {
     display: initial; }
   .focus-card .card-title {
     margin-bottom: 4px !important; }
+  .focus-card .card-content {
+    overflow: scroll; }
 
 .card-container .row {
   position: relative; }
