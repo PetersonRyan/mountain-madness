@@ -7,7 +7,10 @@ var async = require('async');
 var colors  = require('colors');
 var cors = require('cors');
 
+var services = require('./services/services');
+
 const request = require('request');
+const fs = require('fs');
 
 console.log(('Server time: ').yellow, (new Date()).toString());
 require('log-timestamp')(function() { return '[' + new Date() + '] %s' });
@@ -17,8 +20,6 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 app.use(express.static(__dirname + '/public'));
-
-var services = require('./services/services');
 
 const API_KEY = '24431d0e56632af62a7e1891d23a0fd9'
 const API_URL = `https://api.darksky.net/forecast/${API_KEY}`
@@ -41,32 +42,47 @@ app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
 
-//Testing Google Geolocation API
-var lat = 0;
-var lng = 0;
-services.getLocation( "v4e-2v4", (errorMessage, results) => {
-	if ( errorMessage ){
-		console.log(errorMessage);
-	} else {
-		lat = results.latitude;
-		lng = results.longitude;
-		console.log(`Latitude: ${results.latitude}`);
-		console.log(`Longitude: ${results.longitude}`);
-		//Testing DarkSky Weather API
-		services.getWeather(lat, lng, (errorMessage, results) => {
-			if ( errorMessage ) {
-				console.log(errorMessage);
-			} else {
-				console.log(`Current Summary: ${results.currentSummary}`);
-				console.log(`Current Temperature: ${results.currentTemperature}`);
-				for ( i = 0; i < results.dailyLength; i++ )
-				{
-					console.log(`Day: ${results.dailyForecast[i].summary}`);
-				}
-			}
-		})
-	}
+var data = require('./data.json');
+
+async.each(data, function(item, done) {
+	let encodedAddress = data[data.indexOf(item)].name;
+	console.log(data.indexOf(item));
+	// services.getLocation(data[data.indexOf(item)].name, (errorMessage, results) => {
+	// 	if ( errorMessage ){
+	// 		console.log(errorMessage);
+	// 		console.log("error");
+	// 	} else {
+	// 		data[data.indexOf(item)].latitude = results.latitude;
+	// 		console.log("DATA: " + data[data.indexOf(item)].latitude);
+	// 		data[data.indexOf(item)].longitude = results.longitude;
+	// 	}
+	// })
+	request ({//makes api request to google geolocation api
+    url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}`,
+    json: true //tells request that the data coming back is JSON data.  Takes JSON string and convert it to object
+  }, (error, response, body) => {
+    if (error) {
+      callback('Unable to connect to Google servers.');
+    } else if (body.status === 'ZERO_RESULTS') {//google geocode api status variable that displays whether or not the request was successful
+      callback('Unable to find that address.');
+    } else if (body.status === 'OK') {
+			console.log(data.indexOf(item));
+			data[data.indexOf(item)].latitude = body.results[0].geometry.location.lat,
+			data[data.indexOf(item)].longitude = body.results[0].geometry.location.lng
+    }
+  });
+
+
+
 })
 
-//Testing DarkSky Weather
-//lat = 239289, long = 324923;
+setTimeout(function(){
+	fs.writeFile("test.json", JSON.stringify(data), function(err) {
+			 if(err) {
+					 return console.log(err);
+			 }
+	});
+}, 10000);
+
+
+//Testing Google Geolocation API
