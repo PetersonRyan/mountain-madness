@@ -15,7 +15,8 @@
   #navbar-head input {
     padding-left: 20px;
     outline: none;
-    margin: 0; }
+    margin: 0;
+    border-color: transparent;}
 
 img {
   height: 400px; }
