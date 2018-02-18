@@ -10,6 +10,7 @@
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/helpers.css">
 </head>
 <body>
 
@@ -23,40 +24,41 @@
     </div>
 </div>
 
-<div class="container">
+<div class="container" id="card-container">
     <div class="row">
-        <div class="col m6">
+        <div class="col m6 s12">
             <div class="card">
-                <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="images/office.jpg">
+                <div class="card-image">
+                    <i class="fas fa-arrow-left fa-2x" id="asdasd" style="color: white;"></i>
                 </div>
+
                 <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-                    <p><a href="#">This is a link</a></p>
+                    <span class="card-title black-text bold">Name</span>
+                    <div class="display-small">
+                        <ul class="horizontal-bullet-list trail-properties">
+                            <li>Difficulty</li>
+                            <li>City</li>
+                            <li>ETA</li>
+                        </ul>
+                        <ul class="horizontal-bullet-list trail-conditions">
+                            <li>a</li>
+                            <li>a</li>
+                            <li>a</li>
+                        </ul>
+                    </div>
+                    <div class="display-big">
+                        <p class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    </div>
                 </div>
-                <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                    <p>Here's some handy dandy info we can put in when expanded.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col m6">
-            <div class="card">
-                <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="images/office.jpg">
-                </div>
-                <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-                    <p><a href="#">This is a link</a></p>
-                </div>
-                <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                    <p>Here's some handy dandy info we can put in when expanded.</p>
+                <div class="card-action display-big center-align">
+                    <a href="#!">Vancouver Trails</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<div class="backdrop"></div>
 
 
 
@@ -66,6 +68,7 @@
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
     <script src="materialize/js/materialize.min.js"></script>
+    <script src="js/cardControl.js"></script>
 </scripts>
 </body>
 </html>
