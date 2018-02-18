@@ -7,7 +7,6 @@ function initalize(){
             center: new google.maps.LatLng(trails[index].latitude, trails[index].longitude),
             mapTypeId: 'terrain'
         }
-        console.log(document.getElementById("map"+index));
         map[index] = new google.maps.Map(document.getElementById("map"+index), myOptions);
         new google.maps.Marker({
             position: new google.maps.LatLng(trails[index].latitude, trails[index].longitude),
