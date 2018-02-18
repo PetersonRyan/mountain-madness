@@ -1,7 +1,7 @@
 window.map = [];
 
 function initalize(){
-    for(let index=0; index<50; index++){
+    for(let index=0; index<10; index++){
         var myOptions = {
             zoom: 20,
             center: new google.maps.LatLng(trails[index].latitude, trails[index].longitude),
