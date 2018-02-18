@@ -20,6 +20,7 @@ $(document).ready(function(){
             closeFocusCard();
         }     
     });
+
     // $('.focus-card').on('click', function(e) {
     //     e.stopPropagation();
     // });
@@ -33,6 +34,13 @@ $(document).ready(function(){
     window.onresize = setFocusCardContentHeight;
 
 });
+
+function openPopUp(item){
+    $(item).addClass('focus-card').addClass('z-depth-5').find('.card-image').addClass('z-depth-1');
+    $('body').css('overflow', 'hidden');
+    setFocusCardContentHeight();
+    console.log($(item));
+}
 
 function closeFocusCard(){
     $("div .card").removeClass('focus-card').removeClass('z-depth-5').find('.card-image').removeClass('z-depth-1');
@@ -64,17 +72,18 @@ function drawCards(cards){
 }
 
 
+
 function addCard(content){
     //content = trails[0];
     if (!content.distance) console.log(content)
     content = $.extend(test_trail[0], content);
 
-    $.each(content.dailyForecast, function(k,v){
-        content.dailyForecast[k].iconName = icons[v.icon.replace(/-/g, '_')];
+    $.each(content.weather.daily, function(k,v){
+        content.weather.daily[k].iconName = icons[v.icon.replace(/-/g, '_')];
     });
 
     var cardTemplate = "<div class='col m6 s12'>\n" +
-        "            <div class='card'>\n" +
+        "            <div class='card' onclick='openPopUp(this)'>\n" +
         "                <div class='card-image' style='background-image: url(" + content.imgLink + ")'>\n" +
         "                    <div class='stupid-card display-big'>\n" +
         "                        <span class='fa-layers fa-fw exit-card fa-2x'>\n" +
@@ -87,7 +96,7 @@ function addCard(content){
         //"                <div class='full-card-content'>\n" +
         "                <div class='card-content'>\n" +
         "                    <span class='card-title black-text bold'>" + content.name + "</span>\n" +
-        "                    <p class='display-small' id='contentSchedule'>" + content.schedule + "</p>\n" +
+        "                    <p class='display-big'>" + content.schedule + "</p>\n" +
         "                    <div class='display-small secondary-info'>\n" +
         "                        <ul class='horizontal-bullet-list trail-properties'>\n" +
         "                            <li>" + content.difficulty + "</li>\n" +
@@ -110,33 +119,33 @@ function addCard(content){
         "                            <div class='row'><p>WEATHER</p></div>\n" +
         "                            <div class='row center-align'>\n" +
         "                                <div class='col s2'>\n" +
-        "                                    <i class='wi " + content.dailyForecast[0].iconName + "'></i>\n" +
-        "                                    <p class='condition'>" + content.dailyForecast[0].summary + " " + content.dailyForecast[0].temperature + "&deg;C</p>\n" +
+        "                                    <i class='wi " + icons[content.weather.daily[0].icon] + "'></i>\n" +
+        "                                    <p class='condition'>" + content.weather.daily[0].summary + " " + content.weather.daily[0].temperature + "&deg;C</p>\n" +
         "                                    <p class='weather-date'>Feb 24</p>\n" +
         "                                </div>\n" +
         "                                <div class='col s2'>\n" +
-        "                                    <i class='wi " + content.dailyForecast[1].iconName + "'></i>\n" +
-        "                                    <p class='condition'>" + content.dailyForecast[1].summary + " " + content.dailyForecast[1].temperature + "&deg;C</p>\n" +
+        "                                    <i class='wi " + icons[content.weather.daily[1].icon] + "'></i>\n" +
+        "                                    <p class='condition'>" + content.weather.daily[1].summary + " " + content.weather.daily[1].temperature + "&deg;C</p>\n" +
         "                                    <p class='weather-date'>Feb 24</p>\n" +
         "                                </div>\n" +
         "                                <div class='col s2'>\n" +
-        "                                    <i class='wi " + content.dailyForecast[2].iconName + "'></i>\n" +
-        "                                    <p class='condition'>" + content.dailyForecast[2].summary + " " + content.dailyForecast[2].temperature + "&deg;C</p>\n" +
+        "                                    <i class='wi " + icons[content.weather.daily[2].icon] + "'></i>\n" +
+        "                                    <p class='condition'>" + content.weather.daily[2].summary + " " + content.weather.daily[2].temperature + "&deg;C</p>\n" +
         "                                    <p class='weather-date'>Feb 24</p>\n" +
         "                                </div>\n" +
         "                                <div class='col s2'>\n" +
-        "                                    <i class='wi " + content.dailyForecast[3].iconName + "'></i>\n" +
-        "                                    <p class='condition'>" + content.dailyForecast[3].summary + " " + content.dailyForecast[3].temperature + "&deg;C</p>\n" +
+        "                                    <i class='wi " + icons[content.weather.daily[3].icon] + "'></i>\n" +
+        "                                    <p class='condition'>" + content.weather.daily[3].summary + " " + content.weather.daily[3].temperature + "&deg;C</p>\n" +
         "                                    <p class='weather-date'>Feb 24</p>\n" +
         "                                </div>\n" +
         "                                <div class='col s2'>\n" +
-        "                                    <i class='wi " + content.dailyForecast[4].iconName + "'></i>\n" +
-        "                                    <p class='condition'>" + content.dailyForecast[4].summary + " " + content.dailyForecast[4].temperature + "&deg;C</p>\n" +
+        "                                    <i class='wi " + icons[content.weather.daily[4].icon] + "'></i>\n" +
+        "                                    <p class='condition'>" + content.weather.daily[4].summary + " " + content.weather.daily[4].temperature + "&deg;C</p>\n" +
         "                                    <p class='weather-date'>Feb 24</p>\n" +
         "                                </div>\n" +
         "                                <div class='col s2'>\n" +
-        "                                    <i class='wi " + content.dailyForecast[5].iconName + "'></i>\n" +
-        "                                    <p class='condition'>" + content.dailyForecast[5].summary + " " + content.dailyForecast[5].temperature + "&deg;C</p>\n" +
+        "                                    <i class='wi " + icons[content.weather.daily[5].icon] + "'></i>\n" +
+        "                                    <p class='condition'>" + content.weather.daily[5].summary + " " + content.weather.daily[5].temperature + "&deg;C</p>\n" +
         "                                    <p class='weather-date'>Feb 24</p>\n" +
         "                                </div>\n" +
         "                            </div>\n" +
@@ -151,4 +160,6 @@ function addCard(content){
         "\n" +
         "        </div>";
     $("#trail-card-row").append(cardTemplate);
+
 }
+
