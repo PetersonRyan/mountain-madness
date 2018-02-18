@@ -9,6 +9,23 @@ $(document).ready(function(){
         $('body').css('overflow', 'scroll');
     });
 
+    // $('.focus-card').on('click', function(e) {
+    //     e.stopPropagation();
+    // });
+    //
+    // $(document).on('click', function(){
+    //     $("div .card").removeClass('focus-card').removeClass('z-depth-5').find('.card-image').removeClass('z-depth-1');
+    //     $('body').css('overflow', 'scroll');
+    // });
+
+    window.onresize = function(event) {
+        if ($('.focus-card').length <= 0) return;
+        var totalHeight = $('.focus-card').css('height').replace('px','');
+        var imageHeight = $('.focus-card .card-image').css('height').replace('px','');
+        var buttonHeight = $('.card-action').css('height').replace('px','');
+        totalHeight += imageHeight += buttonHeight;
+        $('.card-action .card-content').css('height', totalHeight + 'px');
+    };
 
 
 });

@@ -139,6 +139,10 @@ img{
     margin-bottom: 4px !important;
   }
 
+  .card-content{
+    overflow: scroll;
+  }
+
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
