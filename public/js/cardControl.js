@@ -2,6 +2,7 @@ $(document).ready(function(){
     $('body').on('click', '.card-image', function(){
         $(this).parent().addClass('focus-card').addClass('z-depth-5').find('.card-image').addClass('z-depth-1');
         $('body').css('overflow', 'hidden');
+        setFocusCardContentHeight();
     });
 
     $(document).on('click', '.exit-card', function(){
@@ -18,17 +19,21 @@ $(document).ready(function(){
     //     $('body').css('overflow', 'scroll');
     // });
 
-    window.onresize = function(event) {
-        if ($('.focus-card').length <= 0) return;
-        var totalHeight = $('.focus-card').css('height').replace('px','');
-        var imageHeight = $('.focus-card .card-image').css('height').replace('px','');
-        var buttonHeight = $('.card-action').css('height').replace('px','');
-        totalHeight += imageHeight += buttonHeight;
-        $('.card-action .card-content').css('height', totalHeight + 'px');
-    };
 
+    window.onresize = setFocusCardContentHeight;
 
 });
+
+function setFocusCardContentHeight(){
+    if ($('.focus-card').length <= 0) return;
+    var totalHeight = $('.focus-card').css('height').replace('px','');
+    var imageHeight = $('.focus-card .card-image').css('height').replace('px','');
+    var buttonHeight = $('.focus-card .card-action').css('height').replace('px','');
+    totalHeight -= imageHeight;
+    totalHeight -= buttonHeight;
+    console.log()
+    $('.focus-card .card-content').css('height', totalHeight + 'px');
+}
 
 function drawCards(cards){
     $('#trail-card-row').html('');

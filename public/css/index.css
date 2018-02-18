@@ -102,7 +102,8 @@ img {
   .focus-card .card-title {
     margin-bottom: 4px !important; }
   .focus-card .card-content {
-    overflow: scroll; }
+    overflow: scroll;
+    min-height: 150px; }
 
 .container {
   padding-top: 100px;
