@@ -28,4 +28,5 @@ function search(string){
         results = trails;
     }
     drawCards(results);
+    return results;
 }
