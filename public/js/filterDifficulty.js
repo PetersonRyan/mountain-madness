@@ -1,5 +1,5 @@
+var fuse;
 $(document).ready(function(){
-
 
     var options = {
         shouldSort: true,
@@ -12,13 +12,14 @@ $(document).ready(function(){
             "difficulty"
         ]
     };
-
-    function filterDifficulty(difficulty){
-        var fuse = new Fuse(trails, options);
-        var results = fuse.search(difficulty);
-        if (results.length > 0) drawCards(results);
-        return results;
-    };
-
-    console.log(filterDifficulty('easy'))
+    fuse = new Fuse(trails, options);
 });
+
+function filterDifficulty(difficulty){
+    console.log("Data: "+ difficulty);
+    
+    var results = fuse.search(difficulty);
+    if (results.length > 0) drawCards(results);
+    return results;
+    
+};
