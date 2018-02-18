@@ -51,6 +51,17 @@ img{
   padding-top: 65px;
 }
 
+#search-button{
+  padding: 10px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+}
+.search{
+  position: relative;
+}
+
 .focus-card .display-big{
   display: block !important;
 }

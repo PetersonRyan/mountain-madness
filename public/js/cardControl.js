@@ -95,32 +95,32 @@ function addCard(content){
         "                            <div class='row'><p>WEATHER</p></div>\n" +
         "                            <div class='row center-align'>\n" +
         "                                <div class='col s2'>\n" +
-        "                                    <i class='wi wi-wu-clear'></i>\n" +
+        "                                    <i class='wi " + icons[content.weather.daily[0].icon] + "'></i>\n" +
         "                                    <p class='condition'>" + content.weather.daily[0].summary + " " + content.weather.daily[0].temperature + "&deg;C</p>\n" +
         "                                    <p class='weather-date'>Feb 24</p>\n" +
         "                                </div>\n" +
         "                                <div class='col s2'>\n" +
-        "                                    <i class='wi wi-wu-clear'></i>\n" +
+        "                                    <i class='wi " + icons[content.weather.daily[1].icon] + "'></i>\n" +
         "                                    <p class='condition'>" + content.weather.daily[1].summary + " " + content.weather.daily[1].temperature + "&deg;C</p>\n" +
         "                                    <p class='weather-date'>Feb 24</p>\n" +
         "                                </div>\n" +
         "                                <div class='col s2'>\n" +
-        "                                    <i class='wi wi-wu-clear'></i>\n" +
+        "                                    <i class='wi " + icons[content.weather.daily[2].icon] + "'></i>\n" +
         "                                    <p class='condition'>" + content.weather.daily[2].summary + " " + content.weather.daily[2].temperature + "&deg;C</p>\n" +
         "                                    <p class='weather-date'>Feb 24</p>\n" +
         "                                </div>\n" +
         "                                <div class='col s2'>\n" +
-        "                                    <i class='wi wi-wu-clear'></i>\n" +
+        "                                    <i class='wi " + icons[content.weather.daily[3].icon] + "'></i>\n" +
         "                                    <p class='condition'>" + content.weather.daily[3].summary + " " + content.weather.daily[3].temperature + "&deg;C</p>\n" +
         "                                    <p class='weather-date'>Feb 24</p>\n" +
         "                                </div>\n" +
         "                                <div class='col s2'>\n" +
-        "                                    <i class='wi wi-wu-clear'></i>\n" +
+        "                                    <i class='wi " + icons[content.weather.daily[4].icon] + "'></i>\n" +
         "                                    <p class='condition'>" + content.weather.daily[4].summary + " " + content.weather.daily[4].temperature + "&deg;C</p>\n" +
         "                                    <p class='weather-date'>Feb 24</p>\n" +
         "                                </div>\n" +
         "                                <div class='col s2'>\n" +
-        "                                    <i class='wi wi-wu-clear'></i>\n" +
+        "                                    <i class='wi " + icons[content.weather.daily[5].icon] + "'></i>\n" +
         "                                    <p class='condition'>" + content.weather.daily[5].summary + " " + content.weather.daily[5].temperature + "&deg;C</p>\n" +
         "                                    <p class='weather-date'>Feb 24</p>\n" +
         "                                </div>\n" +
