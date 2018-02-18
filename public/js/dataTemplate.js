@@ -2,7 +2,7 @@ var trails = [{"name":"Abby Grind","region":"Fraser Valley East","difficulty":"I
 
 var test_trail = [
     {
-        name: "NOT AVAILABLE",
+        name: "NOT AVAILABLE!",
         region: "NOT AVAILABLE",
         description: "NOT AVAILABLE",
         difficulty: "NOT AVAILABLE",
