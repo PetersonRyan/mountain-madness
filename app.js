@@ -12,6 +12,8 @@ var services = require('./services/services');
 const request = require('request');
 const fs = require('fs');
 
+var data = require('./data.json');
+
 console.log(('Server time: ').yellow, (new Date()).toString());
 require('log-timestamp')(function() { return '[' + new Date() + '] %s' });
 
@@ -25,7 +27,7 @@ const API_KEY = '24431d0e56632af62a7e1891d23a0fd9'
 const API_URL = `https://api.darksky.net/forecast/${API_KEY}`
 
 app.get('/api/getData', function(req,res){
-
+	res.json(data);
 });
 
 
@@ -42,52 +44,7 @@ app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
 
-var data = require('./data.json');
 
-// async.each(data, function(item, done) {
-// 	let encodedAddress = data[data.indexOf(item)].name;
-// 	//let link = 
-// 	console.log(data.indexOf(item));
-// 	// services.getLocation(data[data.indexOf(item)].name, (errorMessage, results) => {
-// 	// 	if ( errorMessage ){
-// 	// 		console.log(errorMessage);
-// 	// 		console.log("error");
-// 	// 	} else {
-// 	// 		data[data.indexOf(item)].latitude = results.latitude;
-// 	// 		console.log("DATA: " + data[data.indexOf(item)].latitude);
-// 	// 		data[data.indexOf(item)].longitude = results.longitude;
-// 	// 	}
-// 	// })
-
-// 	// request( 'https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}', function(err, resp, html) {
-// 	// 	if (!err){
-// 	// 		console.log(html.body.result[0]);
-// 	// 		//console.log(JSON.stringify(html));
-// 	// 		// data[data.indexOf(item)].latitude = resp.results[0].geometry.location.lat;
-// 	// 		// data[data.indexOf(item)].longitude = resp.results[0].geometry.location.lng;
-// 	// 		// console.log(data[data.indexOf(item)].latitude);
-// 	// 	}
-// 	// });
-
-// 	request ({//makes api request to google geolocation api
-// 		url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}`,
-// 		json: true 
-// 	}, (error, response, body) => {
-// 		if (error) {
-// 			callback('Unable to connect to Google servers.');
-// 		} else if (body.status === 'ZERO_RESULTS') {//google geocode api status variable that displays whether or not the request was successful
-// 			callback('Unable to find that address.');
-// 		} else if (body.status === 'OK') {
-// 				console.log(data.indexOf(item));
-// 				data[data.indexOf(item)].latitude = body.results[0].geometry.location.lat,
-// 				data[data.indexOf(item)].longitude = body.results[0].geometry.location.lng
-// 		}
-
-//   });
-
-
-
-// });
 
 var tracker = 0;
 var myData = setInterval(function(){ addLatLong() }, 100);

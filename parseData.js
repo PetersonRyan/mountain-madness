@@ -4,12 +4,23 @@ var fs = require('fs');
 var axios = require('axios');
 var data = [];
 
+var ProgressBar = require('progress');
+
+var bar = new ProgressBar(':bar', { total: 90 });
+var timer = setInterval(function () {
+  bar.tick();
+  if (bar.complete) {
+    console.log('\nComplete\n');
+    clearInterval(timer);
+  }
+}, 100);
+
+
 var async = require('async');
 var test;
 request('https://www.vancouvertrails.com/trails/', function(err, resp, html) {
         if (!err){
           const $ = cheerio.load(html);
-           console.log("Strted!!");
 
              $('.row.traillist li').each(function(i, elm) {
             // console.log($(this).text()) // for testing do text()
@@ -38,7 +49,7 @@ request('https://www.vancouvertrails.com/trails/', function(err, resp, html) {
 
             });
         }
-
+        console.log("Wait Please...");
 
         async.each(data, function(item, done){
 
@@ -80,8 +91,6 @@ request('https://www.vancouvertrails.com/trails/', function(err, resp, html) {
                         imgLink = "https://www.vancouvertrails.com"+ tempLink;
                         data[data.indexOf(item)].imgLink = imgLink;
                         
-                        console.log(imgLink);
-                        
                     });
                 }
             });
@@ -93,6 +102,8 @@ request('https://www.vancouvertrails.com/trails/', function(err, resp, html) {
                     return console.log(err);
                 }
             });
+
+            console.log("Length: "+ data.length);
         },10000);
 
 });
