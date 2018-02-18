@@ -8,6 +8,7 @@ $(document).ready(function(){
     $(document).on('click', '.exit-card', function(){
         $("div .card").removeClass('focus-card').removeClass('z-depth-5').find('.card-image').removeClass('z-depth-1');
         $('body').css('overflow', 'scroll');
+        $('.card .card-content').css('height',  'initial');
     });
 
     // $('.focus-card').on('click', function(e) {
@@ -25,14 +26,17 @@ $(document).ready(function(){
 });
 
 function setFocusCardContentHeight(){
-    if ($('.focus-card').length <= 0) return;
+    if ($('.focus-card').length <= 0){
+        $('.card .card-content').css('height', 'initial');
+        return;
+    }
     var totalHeight = $('.focus-card').css('height').replace('px','');
     var imageHeight = $('.focus-card .card-image').css('height').replace('px','');
     var buttonHeight = $('.focus-card .card-action').css('height').replace('px','');
     totalHeight -= imageHeight;
     totalHeight -= buttonHeight;
     console.log()
-    $('.focus-card .card-content').css('height', totalHeight + 'px');
+    $('.card .card-content').css('height', totalHeight + 'px');
 }
 
 function drawCards(cards){
@@ -54,7 +58,7 @@ function addCard(content){
         content.weather.daily[k].iconName = icons[v.icon.replace(/-/g, '_')];
     });
 
-    var cardTemplate = "<div class='col xl4 m6 s12'>\n" +
+    var cardTemplate = "<div class='col m6 s12'>\n" +
         "            <div class='card'>\n" +
         "                <div class='card-image' style='background-image: url(" + content.imgLink + ")'>\n" +
         "                    <div class='stupid-card display-big'>\n" +

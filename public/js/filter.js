@@ -13,43 +13,57 @@ function filterDistance(minDistance, maxDistance){
     drawCards(results);
 }
 
-function filterNearBy(range){
-    for (let i=0; i<trails.length ; i++){
-        let checkPoint = { 'lat': trails[i].latitude, 'long': trails[i].longitude};
+function filterNearBy(range, arr){
+    for (let i=0; i<arr.length ; i++){
+        let checkPoint = { 'lat': arr[i].latitude, 'long': arr[i].longitude};
         if (arePointsNear(checkPoint, window.pos, range)){
-            nearBy.push(trails[i]);
+            nearBy.push(arr[i]);
         }
     }
+    drawCards(nearBy);
 }
 
-function filterByElevation(level){
-    for (let i=0; i<trails.length ; i++){
-        let meters = trails[i].elevation;
+function filterByElevation(level, arr){
+    for (let i=0; i<arr.length ; i++){
+        let meters = arr[i].elevation;
         meters = meters.replace( /[^\d.]/g, '' );
         if (meters != ''){
-            if (meters < level) elevationBy.push(trails[i]);
+            if (meters < level) elevationBy.push(arr[i]);
         }else{
-            elevationBy.push(trails[i]);
+            elevationBy.push(arr[i]);
         }
     }
+    drawCards(elevationBy);
 }
 
-function filterByTime(timeLevel){
-    for (let i=0; i<trails.length ; i++){
-        let time = trails[i].time;
+function filterByTime(timeLevel, arr){
+    for (let i=0; i<arr.length ; i++){
+        let time = arr[i].time;
         time = time.replace( /[^\d.]/g, '' );
         if (time < timeLevel) { 
-            timeBy.push(trails[i]);
+            timeBy.push(arr[i]);
         }
     }
+    drawCards(timeBy);
 }
 
-function filterByLength(lenghtLevel){
-    for (let i=0; i<trails.length ; i++){
-        let length = trails[i].distance;
+function filterByLength(lenghtLevel, arr){
+    for (let i=0; i<arr.length ; i++){
+        let length = arr[i].distance;
         length = length.replace( /[^\d.]/g, '' );
         if (length < lenghtLevel) { 
-            lengthBy.push(trails[i]);
+            lengthBy.push(arr[i]);
+        }
+    }
+    drawCards(lengthBy);
+}
+
+function filterByWeather(arr){
+    for (let i=0; i<arr.length ; i++){
+        let weather = arr[i].distance;
+        
+        if (length < lenghtLevel) { 
+            lengthBy.push(arr[i]);
         }
     }
 }
