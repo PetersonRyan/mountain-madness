@@ -11,6 +11,7 @@ var timer = setInterval(function () {
   bar.tick();
   if (bar.complete) {
     console.log('\nComplete\n');
+    console.log("Length: "+ data.length);
     clearInterval(timer);
   }
 }, 100);
@@ -102,8 +103,6 @@ request('https://www.vancouvertrails.com/trails/', function(err, resp, html) {
                     return console.log(err);
                 }
             });
-
-            console.log("Length: "+ data.length);
         },10000);
 
 });

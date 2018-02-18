@@ -47,7 +47,7 @@ app.listen(app.get('port'), function() {
 
 
 var tracker = 0;
-var myData = setInterval(function(){ addLatLong() }, 100);
+var myData = setInterval(function(){ addLatLong() }, 300);
 
 function addLatLong(){
 	let encodedAddress = data[tracker].name;
@@ -61,14 +61,16 @@ function addLatLong(){
 		} else if (body.status === 'ZERO_RESULTS') {//google geocode api status variable that displays whether or not the request was successful
 			callback('Unable to find that address.');
 		} else if (body.status === 'OK') {
+			if (!(tracker >= data.length - 1)){
 				console.log(tracker);
 				data[tracker].latitude = body.results[0].geometry.location.lat;
 				data[tracker].longitude = body.results[0].geometry.location.lng;
 				tracker++;  
+			}
 		}
 	});
 	
-	if (tracker >= 148){
+	if (tracker >= data.length - 1){
 		clearInterval(myData);	
 		fs.writeFile("test.json", JSON.stringify(data), function(err) {
 			if(err) {
