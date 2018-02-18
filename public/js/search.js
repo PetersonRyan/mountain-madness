@@ -4,6 +4,11 @@ $(document).ready(function(){
             search($(this).val());
         }
     });
+
+    $('#search-button').click(function(){
+        console.log($('#trail-search').val())
+        search($('#trail-search').val());
+    });
 });
 
 
