@@ -6,9 +6,13 @@ $(document).ready(function(){
     });
 
     $(document).on('click', '.exit-card', function(){
-        $("div .card").removeClass('focus-card').removeClass('z-depth-5').find('.card-image').removeClass('z-depth-1');
-        $('body').css('overflow', 'scroll');
-        $('.card .card-content').css('height',  'initial');
+        closeFocusCard();
+    });
+
+    $(document).keyup(function(event) {
+        if (event.keyCode === 27) {
+            closeFocusCard();
+        }
     });
 
     // $('.focus-card').on('click', function(e) {
@@ -24,6 +28,12 @@ $(document).ready(function(){
     window.onresize = setFocusCardContentHeight;
 
 });
+
+function closeFocusCard(){
+    $("div .card").removeClass('focus-card').removeClass('z-depth-5').find('.card-image').removeClass('z-depth-1');
+    $('body').css('overflow', 'scroll');
+    $('.card .card-content').css('height',  'initial');
+}
 
 function setFocusCardContentHeight(){
     if ($('.focus-card').length <= 0){
