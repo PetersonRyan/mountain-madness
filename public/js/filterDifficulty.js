@@ -1,6 +1,6 @@
 var options = {
     shouldSort: true,
-    threshold: 0.0,
+    threshold: 0.1,
     location: 0,
     distance: 100,
     maxPatternLength: 32,
@@ -10,8 +10,10 @@ var options = {
     ]
 };
 
-function filterDifficulty(string){
+function filterDifficulty(difficulty){
+    console.log(trails)
     var fuse = new Fuse(trails, options);
-    var result = fuse.search(string);
-    return result;
+    var results = fuse.search(difficulty);
+    if (results.length > 0) drawCards(results);
+    return results;
 };
