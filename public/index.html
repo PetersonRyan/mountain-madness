@@ -25,39 +25,6 @@
                     <i class="fas fa-search"></i>
                 </span>
 
-                <div id="myBtnContainer">
-                  <button class="btn active" onclick="filterSelection('all')"> Clear Filter</button>
-                  <button onclick="myFunction()" class="btn">Intensity</button>
-                    <div id="myDropdown" class="dropdown-content">
-                      <a href="#">Easy</a>
-                      <a href="#">Intermediate</a>
-                      <a href="#">Difficult</a>
-                    </div>
-                  <button class="btn" onclick="filterSelection('Length')"> Length</button>
-                  <button class="btn" onclick="filterSelection('Region')"> Region</button>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col m3">
-                <a href="#" class="dropdown-button btn" data-activates="difficulty-dropdown">Difficulty</a>
-                <ul id="difficulty-dropdown" class="dropdown-content">
-                    <li><a href="#" onclick="filterDifficulty('Easy')">Easy</a></li>
-                    <li><a href="#" onclick="filterDifficulty('Intermediate')">Intermediate</a></li>
-                    <li><a href="#" onclick="filterDifficulty('Difficult')">Difficult</a></li>
-                </ul>
-            </div>
-            <div class="col m3"></div>
-            <div class="col m3"></div>
-            <div class="col m3">
-                <a href="#" class="dropdown-button btn" data-activates="distance-dropdown" id="distance-dropdown-button">Distance</a>
-                <div id="distance-dropdown" class="dropdown-content">
-                    <input type="text">
-                    <input type="text">
-                </div>
             </div>
         </div>
     </div>
@@ -66,6 +33,29 @@
 
 
 <div class="container" id="card-container">
+    <div class="row" id="filter-row">
+        <div class="col m3">
+            <a href="#" class="dropdown-button btn" data-activates="difficulty-dropdown">Difficulty</a>
+            <ul id="difficulty-dropdown" class="dropdown-content">
+                <li><a href="#" onclick="filterDifficulty('Easy')">Easy</a></li>
+                <li><a href="#" onclick="filterDifficulty('Intermediate')">Intermediate</a></li>
+                <li><a href="#" onclick="filterDifficulty('Difficult')">Difficult</a></li>
+            </ul>
+        </div>
+        <div class="col m3">
+            <a href="#" class="dropdown-button btn" data-activates="elevation-dropdown" id="elevation-dropdown-button">Elevation Gain</a>
+        </div>
+        <div class="col m3">
+            <a href="#" class="dropdown-button btn" data-activates="distance-dropdown" id="distance-dropdown-button">Distance</a>
+            <div id="distance-dropdown" class="dropdown-content">
+                <input type="text">
+                <input type="text">
+            </div>
+        </div>
+        <div class="col m3">
+            <a href="#" class="btn" data-activates="filter-search" id="filter-search-button">Filter</a>
+        </div>
+    </div>
     <div class="row" id="trail-card-row">
 
 
