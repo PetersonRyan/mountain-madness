@@ -17,6 +17,15 @@ $(document).ready(function(){
 
 });
 
+function drawCards(cards){
+    $('#trail-card-row').html('');
+    $.each(cards, function(k,v){
+        setTimeout(function(){
+            addCard(v);
+        }, 10);
+    });
+}
+
 
 function addCard(content){
     //content = trails[0];
