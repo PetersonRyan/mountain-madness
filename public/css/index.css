@@ -171,6 +171,9 @@ img {
     overflow-y: scroll;
     overflow-x: hidden;
     min-height: 150px; }
+  .focus-card > .body {
+    background-color: black;
+  }
 
 .card-container .row {
   position: relative; }
