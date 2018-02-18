@@ -1,7 +1,7 @@
 .bold {
   font-weight: 400 !important; }
 
-.fa-arrow-left {
+.exit-card {
   cursor: pointer; }
 
 .white {
@@ -13,6 +13,14 @@ ul.horizontal-bullet-list li {
 ul.horizontal-bullet-list li:after {
   content: " \00b7"; }
 ul.horizontal-bullet-list li:last-child:after {
+  content: none; }
+
+ul.horizontal-spaced-list li {
+  list-style: none;
+  display: inline; }
+ul.horizontal-spaced-list li {
+  padding-right: 10px; }
+ul.horizontal-spaced-list li:last-child:after {
   content: none; }
 
 .display-big {
