@@ -53,7 +53,7 @@ function addLatLong(){
 	let encodedAddress = data[tracker].name;
 
 	request ({//makes api request to google geolocation api
-		url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}`,
+		url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=AIzaSyAFcNRkevtZtIDIcs4xEILC81IWMP9pfA0`,
 		json: true
 	}, (error, response, body) => {
 		if (error) {
@@ -96,7 +96,7 @@ function addWeatherData(){
 		}, (error, response, body) => {
 		if(!error && response.statusCode === 200) {
 
-			if (!(tracker >= data.length - 1)){
+			if (!(weatherTracker >= data.length - 1)){
 				console.log(`weatherTracker: ${weatherTracker}`);
 				data[weatherTracker].currentSummary = body.currently.summary;
 				data[weatherTracker].currentTemperature = body.currently.temperature;
@@ -110,7 +110,7 @@ function addWeatherData(){
 						if(err) {
 							return console.log(err);
 						}
-					   });
+					});
 				}
 			}
 		}
