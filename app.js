@@ -47,7 +47,7 @@ app.listen(app.get('port'), function() {
 
 
 var tracker = 0;
-var myData = setInterval(function(){ addLatLong() }, 400);
+var myData = setInterval(function(){ addLatLong() }, 600);
 
 function addLatLong(){
 	let encodedAddress = data[tracker].name;
@@ -82,7 +82,7 @@ function addLatLong(){
 	
 }
 
-var trailWeather = setInterval(function(){ addWeatherData() }, 400);
+var trailWeather = setInterval(function(){ addWeatherData() }, 600);
 var weatherTracker = 0;
 
 function addWeatherData(){
