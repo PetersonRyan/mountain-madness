@@ -1,4 +1,7 @@
 window.nearBy = [];
+window.elevationBy = [];
+window.timeBy = [];
+window.lengthBy = [];
 
 function filterDistance(minDistance, maxDistance){
     var results=[];
@@ -15,6 +18,38 @@ function filterNearBy(range){
         let checkPoint = { 'lat': trails[i].latitude, 'long': trails[i].longitude};
         if (arePointsNear(checkPoint, window.pos, range)){
             nearBy.push(trails[i]);
+        }
+    }
+}
+
+function filterByElevation(level){
+    for (let i=0; i<trails.length ; i++){
+        let meters = trails[i].elevation;
+        meters = meters.replace( /[^\d.]/g, '' );
+        if (meters != ''){
+            if (meters < level) elevationBy.push(trails[i]);
+        }else{
+            elevationBy.push(trails[i]);
+        }
+    }
+}
+
+function filterByTime(timeLevel){
+    for (let i=0; i<trails.length ; i++){
+        let time = trails[i].time;
+        time = time.replace( /[^\d.]/g, '' );
+        if (time < timeLevel) { 
+            timeBy.push(trails[i]);
+        }
+    }
+}
+
+function filterByLength(lenghtLevel){
+    for (let i=0; i<trails.length ; i++){
+        let length = trails[i].distance;
+        length = length.replace( /[^\d.]/g, '' );
+        if (length < lenghtLevel) { 
+            lengthBy.push(trails[i]);
         }
     }
 }
