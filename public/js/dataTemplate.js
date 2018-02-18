@@ -50660,16 +50660,12 @@ var icons = {
 }
 
 var laymans = {
-    wi_day_sunny
-    wi_day_sunny
-    wi_night_clear
-    wi_raindrops
-    wi_snow
-    wi_sleet
-    wi_strong-wind
-    wi_fog
-    wi_cloudy
-    wi_day-cloudy
-    wi_night-alt-cloudy
-    wi_tornado
+    wi_strong_wind: "Windy",
+    wi_night_alt_cloudy: "Partly Cloudy",
+    wi_day_cloudy: "Partly Cloudy",
+    wi_snow: "Snowing",
+    wi_day_sunny: "Sunny",
+    wi_fog: "Foggy",
+    wi_raindrops: "Raining",
+    wi_cloudy: "Cloudy"
 }
