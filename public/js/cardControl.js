@@ -70,9 +70,9 @@ function drawCards(cards){
     $('#trail-card-row').html('');
     $.each(cards, function(k,v){
         setTimeout(function(){
-            addCard(v); 
+            addCard(v);
         }, 10);
-        
+
     });
 }
 
@@ -101,7 +101,7 @@ function addCard(content){
         //"                <div class='full-card-content'>\n" +
         "                <div class='card-content'>\n" +
         "                    <span class='card-title black-text bold'>" + content.name + "</span>\n" +
-        "                    <p class='display-big'>" + content.schedule + "</p>\n" +
+        "                    <p class='display-big' id='contentSchedule'>" + content.schedule + "</p>\n" +
         "                    <div class='display-small secondary-info'>\n" +
         "                        <ul class='horizontal-bullet-list trail-properties'>\n" +
         "                            <li>" + content.difficulty + "</li>\n" +
