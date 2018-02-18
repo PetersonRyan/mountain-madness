@@ -47,29 +47,67 @@ app.listen(app.get('port'), function() {
 
 
 var tracker = 0;
-var myData = setInterval(function(){ addLatLong() }, 100);
+var myData = setInterval(function(){ addLatLong() }, 400);
 
 function addLatLong(){
 	let encodedAddress = data[tracker].name;
 
 	request ({//makes api request to google geolocation api
 		url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}`,
-		json: true 
+		json: true
 	}, (error, response, body) => {
 		if (error) {
 			callback('Unable to connect to Google servers.');
 		} else if (body.status === 'ZERO_RESULTS') {//google geocode api status variable that displays whether or not the request was successful
 			callback('Unable to find that address.');
 		} else if (body.status === 'OK') {
+			if (!(tracker >= data.length - 1)){
 				console.log(tracker);
 				data[tracker].latitude = body.results[0].geometry.location.lat;
 				data[tracker].longitude = body.results[0].geometry.location.lng;
-				tracker++;  
+				tracker++;
+			}
 		}
 	});
-	
-	if (tracker >= 148){
-		clearInterval(myData);	
+
+	if (tracker >= data.length - 1){
+		clearInterval(myData);
+		fs.writeFile("test.json", JSON.stringify(data), function(err) {
+			if(err) {
+					return console.log(err);
+			}
+   		});
+	}
+}
+
+var trailWeather = setInterval(function(){ addLatLong() }, 400);
+var weatherTracker = 0;
+
+function addWeatherData(){
+	let encodedLat = data[weatherTracker].latitude;
+	let encodedLng = data[weatherTracker].longitude;
+	var weatherurl = API_URL + `/${encodedLat},${encodedLng}`
+
+	request({
+		url: weatherurl,
+		json: true
+	}, (error, response, body) => {
+		if(!error && response.statusCode === 200) {
+			console.log(`weatherTracker: ${weatherTracker}`)
+			if (!(tracker >= data.length - 1)){
+				console.log("Weather Tracker: "+weatherTracker);
+				data[weatherTracker].currentSummary = body.currently.summary,
+				data[weatherTracker].currentTemperature = body.currently.temperature,
+				data[weatherTracker].dailyForecast = body.daily.data;
+				weatherTracker++;
+			}
+		} else {callback(`Unable to fetch weather. statusCode: ${response.statusCode}`);
+
+		}
+	})
+
+	if (weatherTracker >= data.length - 1){
+		clearInterval(trailWeather);
 		fs.writeFile("test.json", JSON.stringify(data), function(err) {
 			if(err) {
 					return console.log(err);
