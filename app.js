@@ -46,6 +46,7 @@ var data = require('./data.json');
 
 async.each(data, function(item, done) {
 	let encodedAddress = data[data.indexOf(item)].name;
+	let link = 
 	console.log(data.indexOf(item));
 	// services.getLocation(data[data.indexOf(item)].name, (errorMessage, results) => {
 	// 	if ( errorMessage ){
@@ -57,24 +58,34 @@ async.each(data, function(item, done) {
 	// 		data[data.indexOf(item)].longitude = results.longitude;
 	// 	}
 	// })
-	request ({//makes api request to google geolocation api
-    url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}`,
-    json: true //tells request that the data coming back is JSON data.  Takes JSON string and convert it to object
-  }, (error, response, body) => {
-    if (error) {
-      callback('Unable to connect to Google servers.');
-    } else if (body.status === 'ZERO_RESULTS') {//google geocode api status variable that displays whether or not the request was successful
-      callback('Unable to find that address.');
-    } else if (body.status === 'OK') {
+
+	request( 'https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}', function(err, resp, html) {
+		if (!err){
 			console.log(data.indexOf(item));
-			data[data.indexOf(item)].latitude = body.results[0].geometry.location.lat,
-			data[data.indexOf(item)].longitude = body.results[0].geometry.location.lng
-    }
-  });
+			//console.log(resp);
+			data[data.indexOf(item)].latitude = html.results[0].geometry.location.lat;
+			data[data.indexOf(item)].longitude = html.results[0].geometry.location.lng;
+		}
+	});
+
+	// request ({//makes api request to google geolocation api
+  //   url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}`,
+  //   json: true //tells request that the data coming back is JSON data.  Takes JSON string and convert it to object
+  // }, (error, response, body) => {
+  //   if (error) {
+  //     callback('Unable to connect to Google servers.');
+  //   } else if (body.status === 'ZERO_RESULTS') {//google geocode api status variable that displays whether or not the request was successful
+  //     callback('Unable to find that address.');
+  //   } else if (body.status === 'OK') {
+	// 		console.log(data.indexOf(item));
+	// 		data[data.indexOf(item)].latitude = body.results[0].geometry.location.lat,
+	// 		data[data.indexOf(item)].longitude = body.results[0].geometry.location.lng
+  //   }
+  // });
 
 
 
-})
+});
 
 setTimeout(function(){
 	fs.writeFile("test.json", JSON.stringify(data), function(err) {

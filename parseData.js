@@ -73,14 +73,14 @@ request('https://www.vancouvertrails.com/trails/', function(err, resp, html) {
                         
                     });
 
-                    $('.banner-img').each(function(i, elm) {
+                    $('.banner-img.img-responsive').each(function(i, elm) {
                     
-                        let tempLink = $(this).text();
+                        let tempLink = $(this).attr("src");
                         let imgLink;
-                        if(tempLink){
-                            imgLink = "https://www.vancouvertrails.com"+ tempLink;
-                            data[data.indexOf(item)].imgLink = imgLink;
-                        }
+                        imgLink = "https://www.vancouvertrails.com"+ tempLink;
+                        data[data.indexOf(item)].imgLink = imgLink;
+                        
+                        console.log(imgLink);
                         
                     });
                 }
