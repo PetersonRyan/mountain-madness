@@ -3,20 +3,19 @@
   overflow: visible;
   position: fixed;
   width: 100%;
-  z-index: 1;}
+  z-index: 1; }
   #navbar-head .search {
     width: 100%;
     height: 40px;
     background-color: white;
     border-radius: 2px;
-    outline: none;}
+    outline: none; }
   #navbar-head .row {
-    padding-top: 15px;}
+    padding-top: 12px; }
   #navbar-head input {
     padding-left: 20px;
     outline: none;
-    margin: 0;
-  border-color: transparent;}
+    margin: 0; }
 
 img {
   height: 400px; }
@@ -36,8 +35,6 @@ img {
     .card .trail-conditions .wi {
       font-weight: 600; }
 
-<<<<<<< HEAD
-=======
 #trail-card-row {
   padding-top: 65px; }
 
@@ -51,7 +48,6 @@ img {
 .search {
   position: relative; }
 
->>>>>>> d1a3e2295ee084c4e9147fe8f1a2ce24a9ebbb1c
 .focus-card .display-big {
   display: block !important; }
 
@@ -131,9 +127,4 @@ img {
     -o-transition: width 0.3s ease, margin 0.3s ease;
     transition: width 0.3s ease, margin 0.3s ease; }
 
-.search-input {
-  -webkit-border-radius: 4px;
-   -moz-border-radius: 4px;
-        border-radius: 4px;
-}
 /*# sourceMappingURL=index.css.map */
