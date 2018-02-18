@@ -37,9 +37,9 @@
         <div class="col m3">
             <a href="#" class="dropdown-button btn waves-effect waves-block waves-light grey" data-activates="difficulty-dropdown">Difficulty</a>
             <ul id="difficulty-dropdown" class="dropdown-content">
-                <li><a href="#" onclick="filterDifficulty('Easy')">Easy</a></li>
-                <li><a href="#" onclick="filterDifficulty('Intermediate')">Intermediate</a></li>
-                <li><a href="#" onclick="filterDifficulty('Difficult')">Difficult</a></li>
+                <li><a href="#" onclick="filterDifficulty('Easy')" class="green-text">Easy</a></li>
+                <li><a href="#" onclick="filterDifficulty('Intermediate')" class="green-text">Intermediate</a></li>
+                <li><a href="#" onclick="filterDifficulty('Difficult')" class="green-text">Difficult</a></li>
             </ul>
         </div>
         <div class="col m3">
@@ -47,6 +47,14 @@
         </div>
         <div class="col m3">
             <a href="#" class="dropdown-button btn waves-effect waves-block waves-light grey" data-activates="distance-dropdown" id="distance-dropdown-button">Distance</a>
+            <ul id="distance-dropdown" class="dropdown-content">
+                <li><a href="#" onclick="filterDistance(0, 5)" class="green-text">0 to 5 km</a></li>
+                <li><a href="#" onclick="filterDistance(5,10)" class="green-text">5 to 10 km</a></li>
+                <li><a href="#" onclick="filterDistance(10,15)" class="green-text">10 to 15 km</a></li>
+                <li><a href="#" onclick="filterDistance(15,20)" class="green-text">15 to 20 km</a></li>
+                <li><a href="#" onclick="filterDistance(20,25)" class="green-text">20 to 25 km</a></li>
+                <li><a href="#" onclick="filterDistance(25,30)" class="green-text">25 to 30 km</a></li>
+            </ul>
             <div id="distance-dropdown" class="dropdown-content">
                 <input type="text">
                 <input type="text">
@@ -92,7 +100,6 @@
         }
         window.onclick = function(event) {
           if (!event.target.matches('.dropbtn waves-effect waves-block waves-light')) {
-
             var dropdowns = document.getElementsByClassName("dropdown-content");
             var i;
             for (i = 0; i < dropdowns.length; i++) {
@@ -104,9 +111,7 @@
           }
         }
     </script>
-
     <script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
-
 </scripts>
 </body>
 </html>

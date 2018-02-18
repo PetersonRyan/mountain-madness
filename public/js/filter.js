@@ -6,7 +6,7 @@ window.lengthBy = [];
 function filterDistance(minDistance, maxDistance){
     var results=[];
     $.each (trails, function(index, object){
-        if (object.distance.replace("km","")>minDistance && object.distance.replace("km","")<maxDistance){
+        if (parseFloat(object.distance.replace("km","").replace('up to ',''))>=minDistance && parseFloat(object.distance.replace("km","").replace('up to ',''))<=maxDistance){
             results.push(object);
         }
     });
@@ -61,9 +61,10 @@ function filterByLength(lenghtLevel, arr){
 function getMaxMinDistance(trailss){
     if (!trailss) trailss = trails;
     $.each(trailss, function(k,v){
-        var distance = v.distance.replace('km','').replace('up to ','');
-        if (distance > distanceMax) distanceMax = distance;
-        if (distance < distanceMin) distanceMin = distance;
+        var distance = parseFloat(v.distance.replace('km','').replace('up to ',''));
+        if (distance > parseFloat(distanceMax)) distanceMax = distance;
+        if (distance < parseFloat(distanceMin)) distanceMin = distance;
+        console.log(distance + " " + distanceMax)
     });
     return { min: distanceMin, max: distanceMax };
 }
