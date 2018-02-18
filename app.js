@@ -79,7 +79,7 @@ function addLatLong(){
 		}
 	});
 
-	
+
 }
 
 var trailWeather = setInterval(function(){ addWeatherData() }, 600);
@@ -98,10 +98,17 @@ function addWeatherData(){
 
 			if (!(weatherTracker >= data.length - 1)){
 				console.log(`weatherTracker: ${weatherTracker}`);
+<<<<<<< HEAD
 				data[weatherTracker].currentSummary = body.currently.summary;
 				data[weatherTracker].currentTemperature = body.currently.temperature;
 				data[weatherTracker].dailyForecast = body.daily.data;
 				data[weatherTracker].currenyIcon = body.currently.icon;
+=======
+				data[weatherTracker].currentSummary = body.currently.summary,
+				data[weatherTracker].currentTemperature = body.currently.temperature,
+				data[weatherTracker].currentIcon = body.currently.icon,
+				data[weatherTracker].dailyForecast = body.daily.data;
+>>>>>>> c53cd1e8dd67880397fc55acd4a18e100c4a76b7
 				weatherTracker++;
 			}else {
 				if (weatherTracker >= data.length - 1){
@@ -116,7 +123,7 @@ function addWeatherData(){
 		}
 	});
 
-	
+
 }
 
 

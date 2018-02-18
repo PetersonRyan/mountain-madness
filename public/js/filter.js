@@ -58,16 +58,6 @@ function filterByLength(lenghtLevel, arr){
     drawCards(lengthBy);
 }
 
-function filterByWeather(arr){
-    for (let i=0; i<arr.length ; i++){
-        let weather = arr[i].distance;
-        
-        if (length < lenghtLevel) { 
-            lengthBy.push(arr[i]);
-        }
-    }
-}
-
 //helper functions
 function arePointsNear(checkPoint, centerPoint, km) {
     var ky = 40000 / 360;
