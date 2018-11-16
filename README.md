@@ -2,7 +2,6 @@
 ## https://petersonryan.com/projects/mountain-madness/
 
 
-https://discord.gg/JrUjgZr
 FEATURES
 Sort by weather after filter drill down
 Multiple filters
