@@ -1,5 +1,5 @@
 
-## https://mountainmadness2018.herokuapp.com/
+## https://petersonryan.com/projects/mountain-madness/
 
 
 https://discord.gg/JrUjgZr
